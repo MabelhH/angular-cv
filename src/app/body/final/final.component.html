@@ -1,0 +1,40 @@
+<div class="formulario">
+<div class="container">
+  <form [formGroup]="fromLogin">
+    <h1 ><mark>Contactanos</mark></h1>
+    <hr>
+    <div class="mb-3">
+        <label for="nombre" class="form-label"><mark>Nombre:</mark></label>
+        <input type="text"  id="nombre"  formControlName="nombre" class="form-control" #nombre  >
+      </div>
+      <div class="mb-3">
+        <label for="apellido" class="form-label"><mark>Apellido:</mark></label>
+        <input type="text"  id="apellido" formControlName="apellido" class="form-control" #apellido>
+      </div>
+        <div class="mb-3">
+          <label for="Email" class="form-label"><mark>Email address:</mark></label>
+          <input type="email" id="Email"  formControlName="email" class="form-control"  aria-describedby="emailHelp" #email>
+        </div>
+        <div class="mb-3">
+          <label for="Password" class="form-label"><mark>Password:</mark></label>
+          <input type="password" id="Password" formControlName="password" class="form-control" #password>
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="Check" #check>
+          <label   formControlName="term" class="form-check-label rounded" for="Check">terminos y condiciones</label>
+        </div>
+        <div>
+          <button type="submit" [disabled]="formLogin.invalid" (click)="anadir(nombre.value, apellido.value ,email.value ,password.value)">Send</button>
+      </div>
+      </form>
+</div>
+<div class="bg-black p-4 text-white text-1xl text-yellow-400">
+  Status - <span class="text-red-500">{{formLogin.valid}}</span>
+</div>
+
+
+<div class="bg-black p-4 text-white text-1xl text-yellow-400 mt-4">
+  {{formlogin.value | json}}
+</div>
+</div>
+
